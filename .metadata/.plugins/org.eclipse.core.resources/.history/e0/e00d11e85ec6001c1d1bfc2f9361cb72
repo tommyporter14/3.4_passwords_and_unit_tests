@@ -1,0 +1,54 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+
+class password_tests {
+
+	@Test
+	void passwordExistsTest() {//test for if already in array FALSE
+		String pass = "hEllO8lll";
+		ArrayList<String> passwords = new ArrayList <> ();
+		passwords.add("hEllO8lll");
+		passwords.add("EyEhi7ii");
+		boolean expected = false;
+		boolean actual = password_code.passwordExists(pass, passwords);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	void passwordExistsTest2() {//test for if not in array TRUE
+		String pass = "EyE7hiwww";
+		ArrayList<String> passwords = new ArrayList <> ();
+		passwords.add("hEllO8lll");
+		passwords.add("EyEhi7ii");
+		boolean expected = true;
+		boolean actual = password_code.passwordExists(pass, passwords);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void addPassword() {//test for character length within 7 to 12 TRUE
+		String pass = "T7zdA3xpI";
+		boolean expected = true;
+		boolean actual = password_code.addPassword(pass);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void addPassword2() {//test for character length too long FALSE
+		String pass = "T7zdA3xpILLLLL";
+		boolean expected = false;
+		boolean actual = password_code.addPassword(pass);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void addPassword3() {//test for character length too short FALSE
+		String pass = "gOOd7";
+		boolean expected = false;
+		boolean actual = password_code.addPassword(pass);
+		assertEquals(expected, actual);
+	}
+}

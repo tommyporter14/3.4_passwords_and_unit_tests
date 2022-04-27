@@ -1,0 +1,38 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+
+class password_tests {
+
+	@Test
+	void passwordExistsTest() {//if already in array 
+		String pass = "hEllO8lll";
+		ArrayList<String> passwords = new ArrayList <> ();
+		passwords.add("hEllO8lll");
+		passwords.add("EyEhi7ii");
+		boolean expected = false;
+		boolean actual = password_code.passwordExists(pass, passwords);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	void passwordExistsTest2() {//if not in array
+		String pass = "EyE7hiwww";
+		ArrayList<String> passwords = new ArrayList <> ();
+		passwords.add("hEllO8lll");
+		passwords.add("EyEhi7ii");
+		boolean expected = true;
+		boolean actual = password_code.passwordExists(pass, passwords);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void addPassword() {
+		String pass = "T7zdA3xpI";
+		boolean expected = true;
+		boolean actual = password_code.addPassword(pass);
+		assertEquals(expected, actual);
+	}
+}

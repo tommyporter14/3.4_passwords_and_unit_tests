@@ -1,0 +1,15 @@
+
+public class passwordstests {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+	public static boolean addPassword (String pass)
+	{
+		boolean trueFalse = false;
+		
+		return trueFalse;
+	}
+}

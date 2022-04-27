@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class passwordstests {
+
+	public static void main(String[] args) {
+		
+				Scanner scnr = new Scanner(System.in);
+		
+				System.out.println("Password Requirements:\n"
+				+ "Password doesn't already exist\n"
+				+ "Password is between 7 - 12 characters\n"
+				+ "Password has at least one number (the number 6 is not allowed)\n"
+				+ "Password has no spaces\n"
+				+ "Password must contain two capital vowels\n"
+				+ "Password may be 'admin' or 'mod' (in this case all other rules are suspended, however these passowrds can only occur once each)");
+				System.out.println("\nPlease enter a password:");
+				String input = scnr.nextLine();
+			
+				if(addPassword(input) == true)
+				{
+					System.out.println("Password Valid");
+				}
+				else
+				{
+					System.out.println("Password Invalid");
+				}
+		
+				scnr.close();
+	}
+
+	public static boolean addPassword (String pass)
+	{
+		boolean trueFalse = false;
+		int countCapVowels = 0;
+		ArrayList<String> passwords = new ArrayList<String>();
+		if(!passwords.contains(pass))
+		{	
+			if(pass.length()>=7 && pass.length()<=12)
+			{
+				if(pass.contains(".*\\d.*"))
+				{
+					if(!pass.contains(" "))
+					{
+						if(!pass.contains("6"))
+						{
+							for (int i = 0; i < pass.length(); i++) 
+							{
+								if (pass.charAt(i) == 'A' || pass.charAt(i) == 'E' || pass.charAt(i) == 'I' || pass.charAt(i) == 'O' || pass.charAt(i) == 'U' || pass.charAt(i) == 'Y') 
+								{
+									countCapVowels++;
+								}
+							}	
+							if (countCapVowels>=2)
+							{
+								trueFalse = true;
+								passwords.add(pass);
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (pass.equals("admin") || pass.equals("mod"))
+		{
+			if (passwords.contains(pass))
+			{
+				trueFalse = true;
+				passwords.add(pass);
+			}
+			else
+			{
+				trueFalse = false;
+			}
+		}
+		
+		else
+		{
+			trueFalse = false;
+		}
+		System.out.println(passwords);
+		return trueFalse;
+	}
+}

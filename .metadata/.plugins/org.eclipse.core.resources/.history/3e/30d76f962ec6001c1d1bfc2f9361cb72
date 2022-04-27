@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class passwordstests {
+
+	public static void main(String[] args) {
+		
+				Scanner scnr = new Scanner(System.in);
+		
+				System.out.println("Password Requirements:\n"
+				+ "Password doesn't already exist\n"
+				+ "Password is between 7 - 12 characters\n"
+				+ "Password has at least one number (the number 6 is not allowed)\n"
+				+ "Password has no spaces\n"
+				+ "Password must contain two capital vowels\n"
+				+ "Password may be 'admin' or 'mod' (in this case all other rules are suspended, however these passowrds can only occur once each)");
+				System.out.println("\nPlease enter a password:");
+				String input = scnr.nextLine();
+				
+				boolean trueFalseReturn = addPassword(input);
+				if(trueFalseReturn = true)
+				{
+					System.out.println("Password Valid");
+				}
+				else
+				{
+					System.out.println("Password Invalid");
+				}
+		
+
+	}
+
+	public static boolean addPassword (String pass)
+	{
+		boolean trueFalse = false;
+		ArrayList<String> passwords = new ArrayList<String>();
+		
+		return trueFalse;
+	}
+}

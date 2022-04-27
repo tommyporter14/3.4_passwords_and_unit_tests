@@ -1,0 +1,97 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class passwordstests {
+
+	public static void main(String[] args) {
+		
+				Scanner scnr = new Scanner(System.in);
+		
+				System.out.println("Password Requirements:\n"
+				+ "Password doesn't already exist\n"
+				+ "Password is between 7 - 12 characters\n"
+				+ "Password has at least one number (the number 6 is not allowed)\n"
+				+ "Password has no spaces\n"
+				+ "Password must contain two capital vowels\n"
+				+ "Password may be 'admin' or 'mod' (in this case all other rules are suspended, however these passowrds can only occur once each)");
+				System.out.println("\nPlease enter a password:");
+				String input = scnr.nextLine();
+			
+				if(addPassword(input) == true)
+				{
+					System.out.println("Password Valid");
+				}
+				else
+				{
+					System.out.println("Password Invalid");
+				}
+		
+				scnr.close();
+	}
+
+	public static boolean addPassword (String pass)
+	{
+		boolean trueFalse;
+		int passFailTotal;
+		int passFailRef = 3;
+		
+		ArrayList<String> passwords = new ArrayList<String>();
+		passFailTotal = checkLength(pass) + checkDigit(pass) + checkSpace(pass);
+		if(passFailRef == passFailTotal)
+		{
+			trueFalse = true;
+			passwords.add(pass);
+		}
+		else
+		{
+			trueFalse = false;
+		}
+		
+		System.out.println(passwords);
+		return trueFalse;
+	
+	}	
+	
+	public static int checkLength (String pass)//checks length, returns 1 if true, 0 if false
+	{
+		int passFail1;
+		int length = pass.length();
+		if (length >= 7 && length<=12)
+		{
+			passFail1 = 1;
+		}
+		else
+		{
+			passFail1 = 0;
+		}
+		return passFail1;
+	}
+	
+	public static int checkDigit (String pass)
+	{
+		int passFail2;
+		if(pass.matches("(.*[0-9].*)") && !pass.contains("6"))
+		{
+			passFail2 = 1;
+		}
+		else
+		{
+			passFail2=0;
+		}
+		return passFail2;
+	}
+	
+	public static int checkSpace (String pass)
+	{
+		int passFail3;
+		if(!pass.contains(" "))
+		{
+			passFail3 = 1;
+		}
+		else
+		{
+			passFail3 = 0;
+		}
+		return passFail3;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;passwordstests&apos; to &apos;password_code&apos;&#x0A;- Original project: &apos;3.4_passwords_&amp;_unit_test&apos;&#x0A;- Original element: &apos;passwordstests&apos;&#x0A;- Renamed element: &apos;password_code&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;passwordstests&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{passwordstests.java[passwordstests" matchStrategy="1" name="password_code" qualified="false" references="true" similarDeclarations="false" stamp="1651083584489" textual="false" version="1.0"/>
+</session>
